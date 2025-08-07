@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Kelurahan Bila</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Custom CSS for elements that can't be done with Tailwind */
+        .hero-image {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://raw.githubusercontent.com/mrezaperdana/descan/bila/assets/backdrop.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .chart-container {
+            position: relative;
+            height: 300px;
+            width: 100%;
+        }
+        
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+        
+        .active-nav {
+            border-bottom: 3px solid #3b82f6;
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <img src="https://via.placeholder.com/50" alt="Logo Kelurahan Bila" class="h-12 mr-3">
+                <div>
+                    <h1 class="text-xl font-bold text-gray-800">KELURAHAN BILA</h1>
+                    <p class="text-xs text-gray-600">Kec. Lalabata, Kab. Soppeng</p>
+                </div>
+            </div>
+            
+            <!-- Mobile menu button -->
+            <button id="mobile-menu-button" class="md:hidden text-gray-700 focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+            
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex space-x-1">
+                <a href="#beranda" class="px-4 py-2 text-gray-700 hover:text-blue-600 font-medium active-nav">Beranda</a>
+                <div class="dropdown relative">
+                    <button class="px-4 py-2 text-gray-700 hover:text-blue-600 font-medium flex items-center">
+                        Profil <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                    </button>
+                    <div class="dropdown-menu absolute hidden bg-white shadow-lg rounded mt-1 py-1 w-48">
+                        <a href="#profil" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Profil Kelurahan</a>
+                        <a href="#visi-misi" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Visi & Misi</a>
+                        <a href="#struktur" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Struktur Organisasi</a>
+                    </div>
+                </div>
+                <a href="#statistik" class="px-4 py-2 text-gray-700 hover:text-blue-600 font-medium">Data Statistik</a>
+                <a href="#layanan" class="px-4 py-2 text-gray-700 hover:text-blue-600 font-medium">Layanan Publik</a>
+                <a href="#galeri" class="px-4 py-2 text-gray-700 hover:text-blue-600 font-medium">Galeri</a>
+                <a href="#kontak" class="px-4 py-2 text-gray-700 hover:text-blue-600 font-medium">Kontak</a>
+            </nav>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="container mx-auto px-4 py-2 flex flex-col">
+                <a href="#beranda" class="px-4 py-2 text-gray-700 hover:bg-gray-100">Beranda</a>
+                <div class="px-4 py-2">
+                    <button class="flex items-center justify-between w-full text-gray-700" onclick="toggleDropdown('profil-dropdown')">
+                        Profil <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                    </button>
+                    <div id="profil-dropdown" class="hidden pl-4 mt-1">
+                        <a href="#profil" class="block py-2 text-gray-700 hover:bg-gray-100">Profil Kelurahan</a>
+                        <a href="#visi-misi" class="block py-2 text-gray-700 hover:bg-gray-100">Visi & Misi</a>
+                        <a href="#struktur" class="block py-2 text-gray-700 hover:bg-gray-100">Struktur Organisasi</a>
+                    </div>
+                </div>
+                <a href="#statistik" class="px-4 py-2 text-gray-700 hover:bg-gray-100">Data Statistik</a>
+                <a href="#layanan" class="px-4 py-2 text-gray-700 hover:bg-gray-100">Layanan Publik</a>
+                <a href="#galeri" class="px-4 py-2 text-gray-700 hover:bg-gray-100">Galeri</a>
+                <a href="#kontak" class="px-4 py-2 text-gray-700 hover:bg-gray-100">Kontak</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="beranda" class="hero-image text-white py-20 md:py-32">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-3xl md:text-5xl font-bold mb-4">Selamat Datang di Website Resmi</h1>
+            <h2 class="text-2xl md:text-4xl font-semibold mb-6">Kelurahan Bila, Kec. Lalabata</h2>
+            <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto">Portal informasi resmi Kelurahan Bila untuk warga dan masyarakat umum</p>
+            
+            <div class="relative max-w-md mx-auto">
+                <input type="text" placeholder="Cari informasi..." class="w-full py-3 px-4 rounded-full text-gray-800 focus:outline-none">
+                <button class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-blue-600 text-white p-2 rounded-full">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Links -->
+    <section class="bg-blue-600 text-white py-6">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap justify-center gap-4 md:gap-8">
+                <a href="#layanan" class="flex items-center hover:underline">
+                    <i class="fas fa-file-alt mr-2"></i> Layanan Administrasi
+                </a>
+                <a href="#statistik" class="flex items-center hover:underline">
+                    <i class="fas fa-chart-bar mr-2"></i> Data Statistik
+                </a>
+         
+                <a href="#kontak" class="flex items-center hover:underline">
+                    <i class="fas fa-phone-alt mr-2"></i> Kontak Darurat
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-12">
+        <!-- Profil Section -->
+        <section id="profil" class="mb-16">
+            <div class="flex flex-col md:flex-row items-center mb-8">
+                <div class="md:w-1/2 mb-6 md:mb-0 md:pr-8">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-4">Profil Kelurahan Bila</h2>
+                    <p class="text-gray-600 mb-4">Kelurahan Bila merupakan salah satu kelurahan di Kecamatan Lalabata, Kabupaten Soppeng, Provinsi Sulawesi Selatan. Kelurahan ini memiliki potensi yang besar di bidang pertanian dan perdagangan.</p>
+                    <p class="text-gray-600">Dengan luas wilayah sekitar 3.500 hektar, Kelurahan Bila dihuni oleh 3.779 Penduduk Laki-Laki, dan 4.023 Penduduk Perempuan. Kelurahan ini terus berkembang dengan dukungan pemerintah setempat dan partisipasi aktif masyarakat.</p>
+                </div>
+                <div class="md:w-1/2">
+                    <img src="https://raw.githubusercontent.com/mrezaperdana/descan/bila/assets/villa.jpg" alt="Pemandangan Kelurahan Bila" class="rounded-lg shadow-md w-full">
+                </div>
+            </div>
+            
+            <!-- Visi Misi -->
+            <div id="visi-misi" class="bg-white p-6 rounded-lg shadow-md mb-8">
+                <h3 class="text-2xl font-bold text-gray-800 mb-4">Visi & Misi Kelurahan Bila</h3>
+                
+                <div class="mb-6">
+                    <h4 class="text-xl font-semibold text-blue-600 mb-2">Visi</h4>
+                    <p class="text-gray-700">"Mewujudkan Kelurahan Bila yang Maju, Mandiri, dan Berbudaya melalui Pemerintahan yang Bersih, Transparan, dan Akuntabel"</p>
+                </div>
+                
+                <div>
+                    <h4 class="text-xl font-semibold text-blue-600 mb-2">Misi</h4>
+                    <ul class="list-disc pl-5 text-gray-700 space-y-2">
+                        <li>Meningkatkan kualitas pelayanan publik yang prima dan profesional</li>
+                        <li>Mengembangkan potensi ekonomi lokal berbasis pertanian dan UMKM</li>
+                        <li>Meningkatkan kualitas sumber daya manusia melalui pendidikan dan pelatihan</li>
+                        <li>Mewujudkan tata kelola pemerintahan yang baik dan bersih</li>
+                        <li>Memelihara nilai-nilai budaya dan kearifan lokal</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Struktur Organisasi -->
+            <div id="struktur" class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-2xl font-bold text-gray-800 mb-6">Struktur Organisasi Kelurahan Bila</h3>
+                
+                <div class="overflow-x-auto">
+                    <table class="min-w-full bg-white border border-gray-200">
+                        <thead class="bg-gray-100">
+                            <tr>
+                                <th class="py-3 px-4 border-b text-left">Jabatan</th>
+                                <th class="py-3 px-4 border-b text-left">Nama</th>
+                                <th class="py-3 px-4 border-b text-left">Kontak</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="py-3 px-4 border-b">Lurah</td>
+                                <td class="py-3 px-4 border-b">HARIADI,SE.,MM</td>
+                                <td class="py-3 px-4 border-b">-</td>
+                            </tr>
+                            <tr class="bg-gray-50">
+                                <td class="py-3 px-4 border-b">Sekretaris Kelurahan</td>
+                                <td class="py-3 px-4 border-b">-</td>
+                                <td class="py-3 px-4 border-b">-</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 px-4 border-b">Kasi Pemerintahan</td>
+                                <td class="py-3 px-4 border-b">-</td>
+                                <td class="py-3 px-4 border-b">-</td>
+                            </tr>
+                            <tr class="bg-gray-50">
+                                <td class="py-3 px-4 border-b">Kasi Kesejahteraan</td>
+                                <td class="py-3 px-4 border-b">-</td>
+                                <td class="py-3 px-4 border-b">-</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 px-4 border-b">Kasi Pelayanan</td>
+                                <td class="py-3 px-4 border-b">-</td>
+                                <td class="py-3 px-4 border-b">-</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Data Statistik -->
+        <section id="statistik" class="mb-16">
+            <h2 class="text-3xl font-bold text-gray-800 mb-8">Data Statistik Kelurahan Bila</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                <!-- Jumlah Penduduk -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Jumlah Penduduk</h3>
+                    <div class="chart-container">
+                        <canvas id="populationChart"></canvas>
+                    </div>
+                    <div class="mt-4">
+                        <p class="text-gray-600">Total penduduk: <span class="font-bold">7.802</span> jiwa (2025)</p>
+                        <p class="text-gray-600">Kepadatan: <span class="font-bold">641</span> jiwa/km</p>
+                    </div>
+                    <button class="mt-4 bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 flex items-center">
+                        <i class="fas fa-download mr-2"></i> Unduh Data
+                    </button>
+                </div>
+                
+                <!-- Distribusi Gender dan Umur -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Distribusi Gender dan Umur</h3>
+                    <div class="flex mb-4">
+                        <div class="w-1/2 pr-2">
+                            <div class="chart-container">
+                                <canvas id="genderChart"></canvas>
+                            </div>
+                        </div>
+                        <div class="w-1/2 pl-2">
+                            <div class="chart-container">
+                                <canvas id="ageChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2 text-sm">
+                        <div class="bg-blue-50 p-2 rounded">
+                            <p class="font-semibold">Laki-laki</p>
+                            <p>3.779 (48.44%)</p>
+                        </div>
+                        <div class="bg-pink-50 p-2 rounded">
+                            <p class="font-semibold">Perempuan</p>
+                            <p>4.023 (51.56%)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                <!-- Mata Pencaharian -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Mata Pencaharian</h3>
+                    <div class="chart-container">
+                        <canvas id="occupationChart"></canvas>
+                    </div>
+                    <div class="mt-4 text-sm space-y-1">
+                        <p class="flex justify-between"><span>Perdagangan</span> <span class="font-bold">42%</span></p>
+                        <p class="flex justify-between"><span>Pertanian</span> <span class="font-bold">28%</span></p>
+                        <p class="flex justify-between"><span>PNS/TNI/Polri</span> <span class="font-bold">12%</span></p>
+                        <p class="flex justify-between"><span>Lainnya</span> <span class="font-bold">18%</span></p>
+                    </div>
+                </div>
+                
+                <!-- Tingkat Pendidikan -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Tingkat Pendidikan</h3>
+                    <div class="chart-container">
+                        <canvas id="educationChart"></canvas>
+                    </div>
+                    <div class="mt-4 text-sm space-y-1">
+                        <p class="flex justify-between"><span>SD ke bawah</span> <span class="font-bold">32%</span></p>
+                        <p class="flex justify-between"><span>SMP</span> <span class="font-bold">25%</span></p>
+                        <p class="flex justify-between"><span>SMA/SMK</span> <span class="font-bold">28%</span></p>
+                        <p class="flex justify-between"><span>Diploma/S1+</span> <span class="font-bold">15%</span></p>
+                    </div>
+                </div>
+                
+                <!-- Akses Kesehatan -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Akses Kesehatan</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <p class="font-semibold">Fasilitas Kesehatan</p>
+                            <ul class="list-disc pl-5 text-sm mt-1">
+                                <li>1 Puskesmas Pembantu</li>
+                                <li>3 Posyandu</li>
+                                <li>1 Apotek</li>
+                                <li>5 Bidan Desa</li>
+                            </ul>
+                        </div>
+             
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Peta Wilayah -->
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">Peta Wilayah Kelurahan Bila</h3>
+                <div class="aspect-w-16 aspect-h-9 bg-gray-200 rounded-lg overflow-hidden">
+                    <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15959.581529917933!2d119.8554841!3d-4.3617796!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2d95f5b8b7b92c33%3A0x89a6bdea870e58e1!2sBila%2C%20Lalabata%2C%20Soppeng%20Regency%2C%20South%20Sulawesi!5e0!3m2!1sen!2sid!4v1691234567890!5m2!1sen!2sid"
+                    width="100%"
+                    height="450"
+                    style="border:0;"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                  </iframe>
+                  
+                </div>
+                <div class="mt-4 flex justify-between items-center">
+                    <p class="text-gray-600">Luas wilayah: <span class="font-bold">3.500 hektar</span></p>
+                    <button class="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 flex items-center">
+                        <i class="fas fa-download mr-2"></i> Unduh Peta
+                    </button>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Layanan Publik -->
+        <section id="layanan" class="mb-16">
+            <h2 class="text-3xl font-bold text-gray-800 mb-8">Layanan Publik</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+                <!-- Kartu 1 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+                    <div class="bg-blue-600 text-white p-4">
+                        <i class="fas fa-id-card text-2xl mb-2"></i>
+                        <h3 class="text-xl font-semibold">Kartu Tanda Penduduk (KTP)</h3>
+                    </div>
+                    <div class="p-4">
+                        <p class="text-gray-600 mb-4">Pelayanan pembuatan dan perpanjangan KTP Elektronik (e-KTP) untuk warga Kelurahan Bila.</p>
+                
+                        <button class="w-full bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700">
+                            Lihat Persyaratan Lengkap
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Kartu 2 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+                    <div class="bg-green-600 text-white p-4">
+                        <i class="fas fa-home text-2xl mb-2"></i>
+                        <h3 class="text-xl font-semibold">Kartu Keluarga (KK)</h3>
+                    </div>
+                    <div class="p-4">
+                        <p class="text-gray-600 mb-4">Pelayanan pembuatan, perubahan data, dan penerbitan Kartu Keluarga baru.</p>
+              
+                        <button class="w-full bg-green-600 text-white py-2 px-4 rounded hover:bg-green-700">
+                            Lihat Persyaratan Lengkap
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Kartu 3 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+                    <div class="bg-yellow-600 text-white p-4">
+                        <i class="fas fa-file-alt text-2xl mb-2"></i>
+                        <h3 class="text-xl font-semibold">Surat Keterangan</h3>
+                    </div>
+                    <div class="p-4">
+                        <p class="text-gray-600 mb-4">Pelayanan penerbitan berbagai surat keterangan seperti tidak mampu, domisili, usaha, dll.</p>
+              
+                        <button class="w-full bg-yellow-600 text-white py-2 px-4 rounded hover:bg-yellow-700">
+                            Lihat Jenis Surat
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Jam Layanan -->
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">Jam Pelayanan</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <h4 class="font-medium text-gray-700 mb-2">Hari Kerja (Senin-Jumat)</h4>
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <p class="flex justify-between border-b pb-2 mb-2">
+                                <span>Pagi</span>
+                                <span class="font-semibold">08:00 - 12:00 WITA</span>
+                            </p>
+                            <p class="flex justify-between">
+                                <span>Sore</span>
+                                <span class="font-semibold">13:00 - 15:00 WITA</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div>
+
+                        
+                        <h4 class="font-medium text-gray-700 mt-4 mb-2">Layanan Darurat</h4>
+                        <div class="bg-red-50 p-4 rounded-lg">
+                            <p class="flex items-center">
+                                <i class="fas fa-phone-alt text-red-600 mr-2"></i>
+                                <span class="font-semibold">- (24 Jam)</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+ 
+        
+        <!-- Galeri -->
+        <section id="galeri" class="mb-16">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-3xl font-bold text-gray-800">Galeri Kegiatan</h2>
+                <a href="#" class="text-blue-600 hover:underline">Lihat Semua <i class="fas fa-arrow-right ml-1"></i></a>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <a href="#" class="group relative block overflow-hidden rounded-lg shadow-md">
+                    <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Kegiatan 1" class="w-full h-48 object-cover transform group-hover:scale-105 transition-transform duration-300">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <p class="text-white font-medium">Kegiatan Posyandu</p>
+                    </div>
+                </a>
+                <a href="#" class="group relative block overflow-hidden rounded-lg shadow-md">
+                    <img src="https://images.unsplash.com/photo-1541178735493-479c1a27ed24?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Kegiatan 2" class="w-full h-48 object-cover transform group-hover:scale-105 transition-transform duration-300">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <p class="text-white font-medium">Pembagian Sembako</p>
+                    </div>
+                </a>
+                <a href="#" class="group relative block overflow-hidden rounded-lg shadow-md">
+                    <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Kegiatan 3" class="w-full h-48 object-cover transform group-hover:scale-105 transition-transform duration-300">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <p class="text-white font-medium">Pelatihan Kerja</p>
+                    </div>
+                </a>
+                <a href="#" class="group relative block overflow-hidden rounded-lg shadow-md">
+                    <img src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Kegiatan 4" class="w-full h-48 object-cover transform group-hover:scale-105 transition-transform duration-300">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <p class="text-white font-medium">Rapat Warga</p>
+                    </div>
+                </a>
+                <a href="#" class="group relative block overflow-hidden rounded-lg shadow-md">
+                    <img src="https://images.unsplash.com/photo-1529333164857-2f7f927030a5?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Kegiatan 5" class="w-full h-48 object-cover transform group-hover:scale-105 transition-transform duration-300">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <p class="text-white font-medium">Senam Bersama</p>
+                    </div>
+                </a>
+                <a href="#" class="group relative block overflow-hidden rounded-lg shadow-md">
+                    <img src="https://images.unsplash.com/photo-1521791055366-0d553872125f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Kegiatan 6" class="w-full h-48 object-cover transform group-hover:scale-105 transition-transform duration-300">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <p class="text-white font-medium">Peringatan HUT RI</p>
+                    </div>
+                </a>
+                <a href="#" class="group relative block overflow-hidden rounded-lg shadow-md">
+                    <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504d3?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Kegiatan 7" class="w-full h-48 object-cover transform group-hover:scale-105 transition-transform duration-300">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <p class="text-white font-medium">Kegiatan PKK</p>
+                    </div>
+                </a>
+                <a href="#" class="group relative block overflow-hidden rounded-lg shadow-md">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Kegiatan 8" class="w-full h-48 object-cover transform group-hover:scale-105 transition-transform duration-300">
+                    <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <p class="text-white font-medium">Pelatihan Komputer</p>
+                    </div>
+                </a>
+            </div>
+            
+            <div class="mt-8 text-center">
+                <button class="bg-blue-600 text-white py-2 px-6 rounded hover:bg-blue-700 inline-flex items-center">
+                    <i class="fas fa-images mr-2"></i> Lihat Galeri Lengkap
+                </button>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Kontak & Footer -->
+    <footer id="kontak" class="bg-gray-800 text-white pt-12 pb-6">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <!-- Kontak -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Kontak Kami</h3>
+                    <div class="space-y-3">
+                        <div class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-blue-400"></i>
+                            <p>Jl. Bila Selatan, Kel. Bila, Kec. Lalabata, Kab. Soppeng, Sulawesi Selatan 90811</p>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-phone-alt mr-3 text-blue-400"></i>
+                            <p>-</p>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-envelope mr-3 text-blue-400"></i>
+                            <p>kelurahan.bila@gmail.com</p>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-clock mr-3 text-blue-400"></i>
+                            <p>Senin-Jumat: 08.00-15.00 WITA</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6">
+                        <h4 class="font-medium mb-2">Media Sosial</h4>
+                        <div class="flex space-x-4">
+                            <a href="#" class="bg-blue-600 w-10 h-10 rounded-full flex items-center justify-center hover:bg-blue-700">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="bg-blue-400 w-10 h-10 rounded-full flex items-center justify-center hover:bg-blue-500">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="bg-red-600 w-10 h-10 rounded-full flex items-center justify-center hover:bg-red-700">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                            <a href="#" class="bg-pink-600 w-10 h-10 rounded-full flex items-center justify-center hover:bg-pink-700">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Peta -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Lokasi Kantor Kelurahan</h3>
+                    <div class="aspect-w-16 aspect-h-9 bg-gray-700 rounded-lg overflow-hidden">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.680058089401!2d119.8908143147539!3d-4.123086997029823!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNMKwMDcnMjMuMSJTIDExOcKwNTMnMzYuOSJF!5e0!3m2!1sen!2sid!4v1621234567890!5m2!1sen!2sid" 
+                                width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+                
+                <!-- Link Cepat -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Link Cepat</h3>
+                    <div class="grid grid-cols-2 gap-4">
+                        <a href="#" class="text-gray-300 hover:text-white hover:underline">Profil Kelurahan</a>
+                        <a href="#" class="text-gray-300 hover:text-white hover:underline">Struktur Organisasi</a>
+                        <a href="#" class="text-gray-300 hover:text-white hover:underline">Data Statistik</a>
+                        <a href="#" class="text-gray-300 hover:text-white hover:underline">Layanan Publik</a>
+                        <a href="#" class="text-gray-300 hover:text-white hover:underline">Galeri Kegiatan</a>
+                        <a href="#" class="text-gray-300 hover:text-white hover:underline">Pengumuman</a>
+                        <a href="#" class="text-gray-300 hover:text-white hover:underline">Kontak Darurat</a>
+                    </div>
+                    
+                    <div class="mt-6">
+                        <h4 class="font-medium mb-2">Unduh Dokumen</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <button class="bg-gray-700 hover:bg-gray-600 text-white py-1 px-3 rounded text-sm flex items-center">
+                                <i class="fas fa-file-pdf mr-1 text-red-500"></i> Profil Kelurahan
+                            </button>
+                            <button class="bg-gray-700 hover:bg-gray-600 text-white py-1 px-3 rounded text-sm flex items-center">
+                                <i class="fas fa-file-excel mr-1 text-green-500"></i> Data Statistik
+                            </button>
+                            <button class="bg-gray-700 hover:bg-gray-600 text-white py-1 px-3 rounded text-sm flex items-center">
+                                <i class="fas fa-file-pdf mr-1 text-red-500"></i> Layanan Publik
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 pt-6">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p>&copy; 2023 Kelurahan Bila, Kec. Lalabata, Kab. Soppeng. All rights reserved.</p>
+                    <div class="flex space-x-4 mt-4 md:mt-0">
+                        <a href="#" class="text-gray-300 hover:text-white">Kebijakan Privasi</a>
+                        <a href="#" class="text-gray-300 hover:text-white">Syarat & Ketentuan</a>
+                        <a href="#" class="text-gray-300 hover:text-white">FAQ</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-6 right-6 bg-blue-600 text-white w-12 h-12 rounded-full shadow-lg hidden items-center justify-center hover:bg-blue-700">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+        
+        // Toggle dropdown in mobile
+        function toggleDropdown(id) {
+            document.getElementById(id).classList.toggle('hidden');
+        }
+        
+        // Back to top button
+        const backToTopButton = document.getElementById('back-to-top');
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('hidden');
+                backToTopButton.classList.add('flex');
+            } else {
+                backToTopButton.classList.add('hidden');
+                backToTopButton.classList.remove('flex');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+        
+        // Charts
+        document.addEventListener('DOMContentLoaded', function() {
+            // Population Chart
+            const populationCtx = document.getElementById('populationChart').getContext('2d');
+            const populationChart = new Chart(populationCtx, {
+                type: 'line',
+                data: {
+                    labels: ['2020', '2021', '2022', '2023', '2024', '2025'],
+                    datasets: [{
+                        label: 'Jumlah Penduduk',
+                        data: [6852, 7042, 7232, 7422, 7612, 7802],
+                        borderColor: 'rgb(59, 130, 246)',
+                        backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                        tension: 0.3,
+                        fill: true
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: false,
+                            min: 3500
+                        }
+                    }
+                }
+            });
+            
+            // Gender Chart
+            const genderCtx = document.getElementById('genderChart').getContext('2d');
+            const genderChart = new Chart(genderCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Laki-laki', 'Perempuan'],
+                    datasets: [{
+                        data: [48.44, 51.56],
+                        backgroundColor: [
+                            'rgb(59, 130, 246)',
+                            'rgb(244, 114, 182)'
+                        ],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom'
+                        }
+                    },
+                    cutout: '70%'
+                }
+            });
+            
+            // Age Chart
+            const ageCtx = document.getElementById('ageChart').getContext('2d');
+            const ageChart = new Chart(ageCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['0-5', '6-12', '13-18', '19-30', '31-45', '46-60', '60+'],
+                    datasets: [{
+                        label: 'Jumlah Penduduk',
+                        data: [320, 450, 380, 850, 950, 750, 556],
+                        backgroundColor: 'rgb(16, 185, 129)'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+            
+            // Occupation Chart
+            const occupationCtx = document.getElementById('occupationChart').getContext('2d');
+            const occupationChart = new Chart(occupationCtx, {
+                type: 'pie',
+                data: {
+                    labels: ['Perdagangan', 'Pertanian', 'PNS/TNI/Polri', 'Lainnya'],
+                    datasets: [{
+                        data: [42, 28, 12, 18],
+                        backgroundColor: [
+                            'rgb(16, 185, 129)',
+                            'rgb(245, 158, 11)',
+                            'rgb(59, 130, 246)',
+                            'rgb(156, 163, 175)'
+                        ],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom'
+                        }
+                    }
+                }
+            });
+            
+            // Education Chart
+            const educationCtx = document.getElementById('educationChart').getContext('2d');
+            const educationChart = new Chart(educationCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['SD ke bawah', 'SMP', 'SMA/SMK', 'Diploma/S1+'],
+                    datasets: [{
+                        data: [32, 25, 28, 15],
+                        backgroundColor: [
+                            'rgb(239, 68, 68)',
+                            'rgb(245, 158, 11)',
+                            'rgb(59, 130, 246)',
+                            'rgb(16, 185, 129)'
+                        ],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom'
+                        }
+                    },
+                    cutout: '60%'
+                }
+            });
+        });
+    </script>
+</body>
+</html>
